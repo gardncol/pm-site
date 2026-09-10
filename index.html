@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colin Gardner — Product Manager</title>
+<meta name="description" content="Colin Gardner is a product manager in Portland, OR. 7 years in product across consumer digital, marketplaces, and internal tooling. $32M+ in recurring revenue impact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: oklch(0.975 0.006 92);
+    --ink: oklch(0.23 0.012 100);
+    --muted: oklch(0.47 0.012 95);
+    --border: oklch(0.885 0.008 95);
+    --accent: oklch(0.44 0.095 155);
+    --accent-ink: oklch(0.98 0.01 150);
+    --card: oklch(0.995 0.004 100);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: oklch(0.205 0.008 130);
+      --ink: oklch(0.925 0.012 95);
+      --muted: oklch(0.66 0.012 95);
+      --border: oklch(0.32 0.01 130);
+      --accent: oklch(0.78 0.115 150);
+      --accent-ink: oklch(0.2 0.02 150);
+      --card: oklch(0.24 0.008 130);
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: oklch(0.975 0.006 92);
+    --ink: oklch(0.23 0.012 100);
+    --muted: oklch(0.47 0.012 95);
+    --border: oklch(0.885 0.008 95);
+    --accent: oklch(0.44 0.095 155);
+    --accent-ink: oklch(0.98 0.01 150);
+    --card: oklch(0.995 0.004 100);
+  }
+  :root[data-theme="dark"] {
+    --paper: oklch(0.205 0.008 130);
+    --ink: oklch(0.925 0.012 95);
+    --muted: oklch(0.66 0.012 95);
+    --border: oklch(0.32 0.01 130);
+    --accent: oklch(0.78 0.115 150);
+    --accent-ink: oklch(0.2 0.02 150);
+    --card: oklch(0.245 0.008 130);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Sans 3", "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1020px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in oklab, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 58px;
+  }
+  .mark {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 600; font-size: 19px;
+    color: var(--ink); text-decoration: none;
+  }
+  .mark span { color: var(--accent); }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 600;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .theme-btn {
+    background: none; border: 1px solid var(--border); border-radius: 999px;
+    padding: 5px 12px; cursor: pointer; color: var(--muted); font-size: 13px;
+    font-family: inherit;
+  }
+  .theme-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+  /* ---------- hero ---------- */
+  header.hero { padding: 88px 0 64px; }
+  .eyebrow {
+    font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 18px;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 5.6vw, 4.1rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    max-width: 15ch;
+  }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    margin-top: 26px; max-width: 56ch; font-size: 19px; color: var(--muted);
+  }
+  .hero-meta {
+    margin-top: 34px; display: flex; flex-wrap: wrap; gap: 12px 28px;
+    font-size: 15px; color: var(--muted);
+  }
+  .hero-meta strong { color: var(--ink); font-weight: 600; }
+  .cta-row { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 11px 22px; border-radius: 999px;
+    font-size: 15px; font-weight: 600; text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-ghost { color: var(--ink); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--ink); }
+
+  /* ---------- section chrome ---------- */
+  section { padding: 58px 0; border-top: 1px solid var(--border); }
+  .sec-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 40px; gap: 16px;
+  }
+  .sec-head h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500; font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+  .sec-head .kicker { font-size: 13px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+
+  /* ---------- case studies ---------- */
+  .case {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 40px;
+    padding: 44px 0;
+    border-top: 1px solid var(--border);
+  }
+  .case:first-of-type { border-top: none; padding-top: 8px; }
+  .case-meta { font-size: 15px; }
+  .case-meta .co { font-weight: 600; font-size: 16px; }
+  .case-meta .role { color: var(--muted); margin-top: 3px; }
+  .case-meta .yr { color: var(--muted); margin-top: 1px; font-size: 14px; }
+  .case-outcome {
+    margin-top: 16px; padding: 12px 14px;
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  }
+  .case-outcome .num {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 24px; font-weight: 600; color: var(--accent); line-height: 1.2;
+  }
+  .case-outcome .lbl { font-size: 12.5px; color: var(--muted); line-height: 1.35; margin-top: 2px; }
+  .case-body h3 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: 22px; margin-bottom: 12px; text-wrap: balance;
+  }
+  .case-body p { color: var(--muted); max-width: 62ch; }
+  .case-body p + p { margin-top: 10px; }
+  .case-body p strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- experience ledger ---------- */
+  .ledger { border-top: 1px solid var(--border); }
+  .ledger-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 1fr;
+    gap: 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .ledger-row .when { color: var(--muted); font-size: 14.5px; font-variant-numeric: tabular-nums; }
+  .ledger-row .role { font-weight: 600; font-size: 16px; }
+  .ledger-row .role span { color: var(--muted); font-weight: 400; }
+  .ledger-row .note { color: var(--muted); font-size: 14.5px; }
+  .ledger-row.current .when { color: var(--accent); font-weight: 600; }
+
+  /* ---------- principles ---------- */
+  .principles {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px;
+  }
+  .principle { padding: 26px 0; border-top: 1px solid var(--border); }
+  .principle:nth-child(-n+2) { border-top: none; padding-top: 0; }
+  .principle h3 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500; font-size: 19px;
+    margin-bottom: 6px;
+  }
+  .principle h3 .n { color: var(--accent); font-variant-numeric: tabular-nums; margin-right: 10px; }
+  .principle p { color: var(--muted); font-size: 15.5px; }
+
+  /* ---------- about ---------- */
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; }
+  .about-grid p { color: var(--muted); max-width: 60ch; }
+  .about-grid p + p { margin-top: 14px; }
+  .about-grid p strong { color: var(--ink); }
+  .factbox { border: 1px solid var(--border); border-radius: 12px; padding: 22px 24px; background: var(--card); }
+  .factbox h3 {
+    font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 14px;
+  }
+  .factbox dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; font-size: 15px; }
+  .factbox dt { color: var(--muted); }
+  .factbox dd { font-weight: 600; }
+
+  /* ---------- contact / footer ---------- */
+  .contact-inner { text-align: left; }
+  .contact-inner h2 {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(1.8rem, 4vw, 2.6rem); max-width: 22ch; text-wrap: balance;
+  }
+  .contact-inner p { color: var(--muted); margin-top: 14px; max-width: 52ch; }
+  footer.site-foot {
+    padding: 26px 0 40px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 14px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  }
+  footer.site-foot a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--border); }
+  footer.site-foot a:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* ---------- reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    .btn:hover { transform: none; }
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 780px) {
+    .case { grid-template-columns: 1fr; gap: 18px; padding: 34px 0; }
+    .case-outcome { display: inline-block; min-width: 240px; }
+    .ledger-row { grid-template-columns: 1fr; gap: 4px; padding: 16px 0; }
+    .ledger-row .note { margin-top: 2px; }
+    .principles { grid-template-columns: 1fr; }
+    .principle:nth-child(-n+2) { border-top: 1px solid var(--border); padding-top: 26px; }
+    .principle:first-child { border-top: none; padding-top: 0; }
+    .about-grid { grid-template-columns: 1fr; gap: 28px; }
+    header.hero { padding: 56px 0 44px; }
+    .nav-links a:not(.theme-btn):not(:last-child) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="mark" href="#top">Colin Gardner<span>.</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">Dark</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Product Manager · Portland, OR</div>
+    <h1>I turn ambiguous problems into <em>shipped, measured</em> products.</h1>
+    <p class="hero-sub">
+      Seven years in product across consumer digital, B2B marketplaces, and internal tooling —
+      preceded by five in operations and finance, which is where I learned to follow the money.
+      $32M+ in recurring revenue impact so far.
+    </p>
+    <div class="hero-meta">
+      <span><strong>Now:</strong> Senior PM, KinderCare</span>
+      <span><strong>Impact:</strong> $22M+ ARR feature · 2X team velocity · 50% fraud cut</span>
+      <span><strong>Certified:</strong> CSPO, Scrum Alliance</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:mail@coling.me">Email me</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/gardnercolin/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="/resume/Colin_Gardner_Thrivent_Resume.pdf">Résumé (PDF)</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="work">
+    <div class="sec-head">
+      <h2>Selected work</h2>
+      <span class="kicker">Problem → approach → outcome</span>
+    </div>
+
+    <article class="case reveal">
+      <div class="case-meta">
+        <div class="co">KinderCare</div>
+        <div class="role">Product Owner</div>
+        <div class="yr">2023 – 2024</div>
+        <div class="case-outcome">
+          <div class="num">$22M+</div>
+          <div class="lbl">new annual recurring revenue from one feature</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Tour scheduling that met families where they decide</h3>
+        <p>
+          Families choose a childcare center the way they choose anything high-stakes: slowly,
+          with a person they trust, at the moment they're ready. The old flow made them work
+          on the company's schedule.
+        </p>
+        <p>
+          I mapped the full journey, found the touchpoints where a better design would change
+          the outcome, and shipped a family-facing scheduling experience around how parents
+          actually compare options. It became the largest single driver of new ARR I've shipped,
+          and it changed how the company prices similar work.
+        </p>
+      </div>
+    </article>
+
+    <article class="case reveal">
+      <div class="case-meta">
+        <div class="co">KinderCare</div>
+        <div class="role">Product Manager</div>
+        <div class="yr">2024 – 2026</div>
+        <div class="case-outcome">
+          <div class="num">$10M</div>
+          <div class="lbl">recurring-value transformation across 10 teams</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Aligning ten teams behind one number</h3>
+        <p>
+          A business transformation only ships when ten teams row in the same direction. I owned
+          the roadmap for a $10M recurring-value initiative spanning design, engineering,
+          operations, and product leadership — including two concurrent Scrum pipelines I ran
+          without letting either slip.
+        </p>
+        <p>
+          The part I'm proudest of: the <strong>executive business reviews</strong>. I defended
+          the roadmap in front of the C-suite by tying every line of it to business outcomes,
+          and secured the investment to keep it funded.
+        </p>
+      </div>
+    </article>
+
+    <article class="case reveal">
+      <div class="case-meta">
+        <div class="co">SurveyMonkey</div>
+        <div class="role">Operations Analyst</div>
+        <div class="yr">2017 – 2019</div>
+        <div class="case-outcome">
+          <div class="num">50%</div>
+          <div class="lbl">fraud reduction from a rebuilt chargeback process</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Cutting fraud in half, then telling Engineering why it mattered</h3>
+        <p>
+          Before product, I owned payments fraud and chargebacks. I rebuilt the chargeback
+          process end to end and cut fraud by half — then championed the user-centric fixes
+          to Engineering, because a fraud process that treats every customer as a suspect
+          just moves the loss somewhere else.
+        </p>
+        <p>
+          It's still the clearest education I got in how back-office decisions show up as
+          front-line experiences.
+        </p>
+      </div>
+    </article>
+
+    <article class="case reveal">
+      <div class="case-meta">
+        <div class="co">OpenSesame</div>
+        <div class="role">Product Manager</div>
+        <div class="yr">2021 – 2023</div>
+        <div class="case-outcome">
+          <div class="num">B2B</div>
+          <div class="lbl">e-learning marketplace vision + KPIs, company-wide buy-in</div>
+        </div>
+      </div>
+      <div class="case-body">
+        <h3>Vision and KPIs for a two-sided marketplace</h3>
+        <p>
+          I set product vision and KPIs for a B2B e-learning marketplace with executive
+          leadership and external partners, then led discovery and scoping for the epics that
+          followed — balancing buyer, seller, and partner priorities in a high-growth,
+          partner-driven environment.
+        </p>
+        <p>
+          The discipline that stuck: sequencing the roadmap to maximize customer value within
+          real capacity constraints, not the version that fits in a deck.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <h2>Experience</h2>
+      <span class="kicker">11 years, 5 companies</span>
+    </div>
+    <div class="ledger">
+      <div class="ledger-row current reveal">
+        <div class="when">Feb 2026 — Present</div>
+        <div class="role">Senior Product Manager <span>· KinderCare, Portland</span></div>
+        <div class="note">Coaching PMs, consumer digital domains across 5 scrum teams</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="when">Oct 2024 — Feb 2026</div>
+        <div class="role">Product Manager <span>· KinderCare, Portland</span></div>
+        <div class="note">$10M transformation · 10 cross-functional teams · exec reviews</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="when">Mar 2023 — Oct 2024</div>
+        <div class="role">Product Owner <span>· KinderCare, Portland</span></div>
+        <div class="note">$22M+ ARR tour scheduling · Salesforce migration · 2X velocity</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="when">Oct 2021 — Feb 2023</div>
+        <div class="role">Product Manager <span>· OpenSesame, Portland</span></div>
+        <div class="note">B2B e-learning marketplace · vision, KPIs, discovery</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="when">Oct 2019 — Oct 2021</div>
+        <div class="role">Associate Product Manager <span>· OpenSesame, Portland</span></div>
+        <div class="note">New product line strategy · pandemic-response pivot</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="when">Jan 2017 — Jan 2019</div>
+        <div class="role">Operations Analyst <span>· SurveyMonkey, Portland</span></div>
+        <div class="note">Chargeback process, 50% fraud reduction · site budgets</div>
+      </div>
+      <div class="ledger-row reveal">
+        <div class="when">Sep 2015 — Oct 2017</div>
+        <div class="role">Financial Analyst <span>· Intel, Hillsboro</span></div>
+        <div class="note">Asset record project, multi-million dollar savings</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="principles">
+    <div class="sec-head">
+      <h2>How I work</h2>
+      <span class="kicker">Learned the hard way</span>
+    </div>
+    <div class="principles">
+      <div class="principle reveal">
+        <h3><span class="n">01</span>Backlogs are promises</h3>
+        <p>A user story without real acceptance criteria is a wish. I write tickets engineers don't need to decode, then follow up until requirements actually land.</p>
+      </div>
+      <div class="principle reveal">
+        <h3><span class="n">02</span>Ship small, learn fast</h3>
+        <p>Iterative releases beat perfect launches. I'd rather show rough work and correct course than burn a week polishing something that's off-track.</p>
+      </div>
+      <div class="principle reveal">
+        <h3><span class="n">03</span>Metrics before opinions</h3>
+        <p>Track the KPIs that tell you whether something's working, and let them pick what's next. Roadmaps defended with numbers survive reorgs.</p>
+      </div>
+      <div class="principle reveal">
+        <h3><span class="n">04</span>Ask until it's obvious</h3>
+        <p>I dig into domains I haven't worked in and keep asking good-natured questions until the why is as clear as the what. Engineers trust that.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="sec-head">
+      <h2>About</h2>
+      <span class="kicker">The short version</span>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p>
+          I'm a product manager in <strong>Portland, Oregon</strong>. I came to product the long way —
+          financial analysis at Intel, fraud operations at SurveyMonkey — which means I learned
+          to follow the money before I learned to write user stories. It's a background I use
+          constantly: product decisions are business decisions, and I like being able to defend
+          both.
+        </p>
+        <p>
+          At KinderCare I've grown from Product Owner to Senior PM across consumer-facing
+          digital products, coaching newer PMs along the way. I like the player-coach shape of
+          the work: deep in the backlog with engineers most days, and in front of executives
+          when the roadmap needs defending.
+        </p>
+        <p>
+          Outside work: Oregon State double degree (Marketing + International Business),
+          strength training, and reading things unrelated to roadmaps.
+        </p>
+      </div>
+      <aside class="factbox reveal">
+        <h3>At a glance</h3>
+        <dl>
+          <dt>Location</dt><dd>Portland, OR</dd>
+          <dt>Open to</dt><dd>Senior PM / Mgr, Product · Remote US</dd>
+          <dt>Experience</dt><dd>7 yrs product, 11 yrs business</dd>
+          <dt>Education</dt><dd>OSU · B.S. Marketing · B.S. Intl. Business</dd>
+          <dt>Certification</dt><dd>CSPO — Scrum Alliance</dd>
+          <dt>Tools</dt><dd>Jira · Salesforce · Confluence · SQL</dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact-inner">
+      <h2>The fastest way to reach me is email.</h2>
+      <p>
+        I'm currently open to senior product and manager-of-product roles, remote from the US.
+        If you'd rather talk live, my number is on my résumé.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="mailto:mail@coling.me">mail@coling.me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/gardnercolin/" target="_blank" rel="noopener">LinkedIn profile</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot wrap">
+  <span>© 2026 Colin Gardner · Portland, OR</span>
+  <span><a href="mailto:mail@coling.me">mail@coling.me</a> · <a href="https://www.linkedin.com/in/gardnercolin/" target="_blank" rel="noopener">LinkedIn</a></span>
+</footer>
+
+<script>
+  // Theme toggle — respects system preference by default
+  const btn = document.getElementById('themeBtn');
+  const stored = localStorage.getItem('cg-theme');
+  if (stored) document.documentElement.dataset.theme = stored;
+  btn.textContent = document.documentElement.dataset.theme === 'dark' ? 'Light' : 'Dark';
+  btn.addEventListener('click', () => {
+    const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('cg-theme', next);
+    btn.textContent = next === 'dark' ? 'Light' : 'Dark';
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
